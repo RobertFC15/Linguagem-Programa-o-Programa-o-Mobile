@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 8px;
+            width: 100px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Verificação de Nota</h2>
+    <p>Digite a nota do aluno (0 a 10):</p>
+    
+    <input type="number" id="nota" min="0" max="10">
+    <br>
+    <button onclick="verificarNota()">Verificar</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function verificarNota() {
+            let nota = parseFloat(document.getElementById("nota").value);
+            let mensagem = "";
+
+            if (nota < 5) {
+                mensagem = "Reprovado";
+            } else if (nota >= 5 && nota < 7) {
+                mensagem = "Recuperação";
+            } else {
+                mensagem = "Aprovado";
+            }
+
+            document.getElementById("resultado").innerText = `Resultado: ${mensagem}`;
+        }
+    </script>
+
+</body>
+</html>
