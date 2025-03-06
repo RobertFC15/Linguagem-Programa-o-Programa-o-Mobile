@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Série Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cálculo da Série de Fibonacci</h2>
+    <p>Digite um número para exibir essa quantidade de elementos da sequência:</p>
+    
+    <input type="number" id="quantidade" min="1">
+    <br>
+    <button onclick="calcularFibonacci()">Gerar Fibonacci</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularFibonacci() {
+            let n = parseInt(document.getElementById("quantidade").value);
+            let resultado = document.getElementById("resultado");
+
+            if (isNaN(n) || n <= 0) {
+                resultado.innerText = "Digite um número válido maior que 0.";
+                return;
+            }
+
+            let fibonacci = [0, 1];
+
+            for (let i = 2; i < n; i++) {
+                fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
+            }
+
+            resultado.innerText = `Série Fibonacci (${n} elementos): ${fibonacci.slice(0, n).join(", ")}`;
+        }
+    </script>
+
+</body>
+</html>
