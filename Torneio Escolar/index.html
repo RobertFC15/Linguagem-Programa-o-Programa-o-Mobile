@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Competição</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+            width: 50px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Resultados da Competição de Futsal</h2>
+    <p>Digite "V" para vitória e "D" para derrota em cada partida:</p>
+
+    <input type="text" id="game1" maxlength="1">
+    <input type="text" id="game2" maxlength="1">
+    <input type="text" id="game3" maxlength="1">
+    <input type="text" id="game4" maxlength="1">
+    <input type="text" id="game5" maxlength="1">
+    <input type="text" id="game6" maxlength="1">
+    
+    <br>
+    <button onclick="calcularPontos()">Calcular Pontuação</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularPontos() {
+            let pontos = 0;
+            for (let i = 1; i <= 6; i++) {
+                let resultado = document.getElementById(`game${i}`).value.toUpperCase();
+                if (resultado === "V") {
+                    pontos += 3;
+                } else if (resultado === "D") {
+                    pontos += 1;
+                }
+            }
+            document.getElementById("resultado").innerText = `Pontuação final do time: ${pontos} pontos.`;
+        }
+    </script>
+
+</body>
+</html>
